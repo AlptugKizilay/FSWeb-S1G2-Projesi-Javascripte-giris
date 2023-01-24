@@ -19,8 +19,9 @@ Aşağıdakileri yapın:
 
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
-
-
+let surucuYasi = 18;
+if(surucuYasi > 18){console.log(true);}
+else{console.log(false);}
 
 /*
 Görev 1b - Değerler (puanlamaya dahil değildir)
@@ -34,7 +35,12 @@ Aşağıdakileri yapınız:
    İPUCU: fonksiyon oluşturmaya gerek yok
 */
 
-
+let birinciDeger = 10;
+let ikinciDeger = 20;
+if(birinciDeger<ikinciDeger){
+  birinciDeger= 30;
+}
+console.log(birinciDeger);
 
 
 
@@ -48,7 +54,9 @@ Aşağıdakileri yapın:
 
    İPUCU: Number metoduna bakabilirsin
 */
-
+let number = "1999";
+let intNumber = Number(number);
+console.log(intNumber);
 
 
 
@@ -61,9 +69,12 @@ Aşağıdakileri yapın:
    3. a ve b'yi çarpıp, sonucu dönün
 */
 
-function carpma(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function carpma(num1,num2){
+  return num1 * num2;
 }
+let a = 10;
+let b = 2;
+console.log(carpma(a,b));
 
 
 
@@ -77,9 +88,12 @@ Aşağıdakileri yapın:
  3. Hesaplanan köpeğin yaşını dönün.
  */
 
-function kopeginYasi(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+ function kopeginYasi(insanYas){
+  return insanYas * 7;
 }
+let insanYası = 10;
+console.log("Köpegin Yasi: " + kopeginYasi(insanYası));
+console.log("hello");
 
 
 
@@ -103,10 +117,31 @@ Aşağıdakileri oyun isimli fonksiyonu kullanarak yapın.
 
 OYUNUN KURALLARI: Makas Kağıdı yener| Kağıt Taşı yener | Taş Makas'ı yener | veya beraberlik olur.
 */
-
 function oyun(oyuncu, bilgisayar){
-  /*buraya kodunu yazabilirsin*/
+  if (oyuncu === bilgisayar) {
+    return "Beraberlik";
+  } else if (
+    (oyuncu === "Taş" && bilgisayar === "Makas") ||
+    (oyuncu === "Kağıt" && bilgisayar === "Taş") ||
+    (oyuncu === "Makas" && bilgisayar === "Kağıt")
+  ) {
+    return "Kazandın!";
+  } else {
+    return "Kaybettin!";
+  }
 }
+let pcSecim = Math.floor(Math.random()*3);
+//console.log(pcSecim);
+if(pcSecim === 0) {pcSecim = "Taş";}
+else if(pcSecim === 1){pcSecim = "Kağıt";}
+else{ pcSecim= "Makas";}
+
+let oyuncuSecim = "Makas";
+//let oyuncuSecim = prompt("Taş, Kağıt, Makas : ");
+console.log("Bilgisayar:" + pcSecim);
+console.log(oyun(oyuncuSecim,pcSecim));
+
+
 
 
 
@@ -120,10 +155,13 @@ Aşağdakileri milDonusturucu fonksiyonunu kullanarak yapın:
 3. Mil değerini geri dönün
 */
 
-function milDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function milDonusturucu(km){
+  let mil = km * 0.621371;
+  return mil;
 }
-
+//let km = prompt("KM: " )
+let km = 100;
+console.log(km + "km = " + milDonusturucu(km) + "mil");
 
 
 //Görev 4b - Santimetreden Feet
@@ -134,9 +172,13 @@ Aşağıdakileri feetDonusturucu fonsiyonunu kullanarak yapın:
 3. feet değerini geri dönün
 */
 
-function feetDonusturucu(/*buraya kodunu yazabilirsin*/){
-  /*buraya kodunu yazabilirsin*/
+function feetDonusturucu(cm){
+  let feet =  cm * 0.0328084;
+  return feet;
+
 }
+let cm = 160;
+console.log(cm+"cm = " + feetDonusturucu(cm) + "feet");
 
 
 
@@ -153,8 +195,12 @@ Aşağıdakileri cocukSarkisi fonksiyonunda yapın:
 4. Bu döngüde, her seferinde cocukSarkisi fonsiyonu çalışsın ve console.log'a dönen metni yazdırsın.
 */
 
-function cocukSarkisi(/*buraya kodunu yazabilirsin*/){
-      /*buraya kodunu yazabilirsin*/
+function cocukSarkisi(maymunSayisi){
+  console.log(`${maymunSayisi} küçük maymun yatakta zıplamış, biri düşüp başını çarpmış, Anne doktoru aramış, Doktor çok kızmış: Bir daha yatakta zıplamak yok!`)
+}
+
+for(let maymunSayisi=5; maymunSayisi>=1; maymunSayisi--){
+  cocukSarkisi(maymunSayisi);
 }
 
 
@@ -173,9 +219,23 @@ Aşağdakileri notHesapla fonksiyonunda yapın.
  dönün
 */
 
-function notHesapla(/*buraya kodunu yazabilirsin*/){
-/*buraya kodunu yazabilirsin*/
-}
+function notHesapla(sonuc){
+  if (sonuc >= 90 && sonuc <= 100) {
+      return "A aldın";
+    } else if (sonuc >= 80 && sonuc <= 89) {
+      return "B aldın";
+    } else if (sonuc >= 70 && sonuc <= 79) {
+      return "C aldın";
+    } else if (sonuc >= 60 && sonuc <= 69) {
+      return "D aldın";
+    } else {
+      return "F aldın";
+    }
+  }
+  //let sonuc = prompt("Sonuc: ")
+  let sonuc = 77;
+  console.log(notHesapla(sonuc));
+
 
 
 
